@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sustainable India – Interactive SDG Policy Explorer</title>
+  <meta name="description" content="Explore India's Sustainable Development Goals and discover government policies driving sustainability. Interactive dashboard with policy simulation and citizen participation." />
+  <meta name="keywords" content="SDG, Sustainable Development Goals, India, Policy Explorer, Sustainability, Green India" />
+  <meta name="author" content="Sustainable India" />
+  <meta name="theme-color" content="#10b981" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌱</text></svg>" />
+  <link rel="stylesheet" href="index.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#home" class="nav-brand">
+        <div class="nav-brand-icon">🌱</div>
+        Sustainable India
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="active">Home</a></li>
+        <li><a href="#explorer">SDG Explorer</a></li>
+        <li><a href="#dashboard">Impact</a></li>
+        <li><a href="#simulator">Simulator</a></li>
+        <li><a href="#citizen">Citizen Voice</a></li>
+      </ul>
+      <div class="nav-auth" id="navAuth">
+        <button class="btn-auth-login" id="navLoginBtn" onclick="openAuthModal()">
+          <span class="auth-icon">👤</span> Login
+        </button>
+      </div>
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== SDG WHEEL (Right Side Navigation) ===== -->
+  <div class="sdg-wheel-container" id="sdgWheelContainer">
+    <div class="sdg-wheel-trigger" id="sdgWheelTrigger">
+      <span>SDG WHEEL</span>
+    </div>
+    <div class="sdg-wheel" id="sdgWheel">
+      <div class="sdg-wheel-center">SDG<br/>Goals</div>
+      <!-- Wheel items injected via JS -->
+    </div>
+  </div>
+
+  <!-- ===== HERO SECTION ===== -->
+  <section class="hero" id="home">
+    <div class="hero-bg">
+      <div class="hero-blob hero-blob-1"></div>
+      <div class="hero-blob hero-blob-2"></div>
+      <div class="hero-blob hero-blob-3"></div>
+    </div>
+    <div class="floating-icons" id="floatingIcons">
+      <!-- Injected via JS -->
+    </div>
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          Exploring India's Sustainability Journey
+        </div>
+        <h1>
+          <span class="highlight">Sustainable India</span> –<br/>
+          Interactive SDG Policy Explorer
+        </h1>
+        <p class="hero-description">
+          Discover how India's government policies are transforming 1.4 billion lives — 
+          one sustainable goal at a time. Explore, simulate, and participate in shaping the future.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="scrollToSection('explorer')">
+            🔍 Explore SDGs
+          </button>
+          <button class="btn-secondary" onclick="scrollToSection('simulator')">
+            🎮 Try Simulator
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="hero-stat-number" data-count="17">0</div>
+            <div class="hero-stat-label">SDG Goals</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number" data-count="51">0</div>
+            <div class="hero-stat-label">Active Policies</div>
+          </div>
+          <div class="hero-stat">
+            <div class="hero-stat-number" data-count="1400">0</div>
+            <div class="hero-stat-label">Million Lives</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SDG EXPLORER SECTION ===== -->
+  <section class="sdg-explorer" id="explorer">
+    <div class="container">
+      <h2 class="section-title reveal">Explore the 17 SDGs</h2>
+      <p class="section-subtitle reveal">
+        Click on any goal to discover the Indian government policies driving its achievement.
+      </p>
+      <div class="sdg-grid" id="sdgGrid">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SDG DETAIL MODAL ===== -->
+  <div class="sdg-modal-overlay" id="sdgModalOverlay">
+    <div class="sdg-modal" id="sdgModal">
+      <div class="sdg-modal-header">
+        <div class="sdg-modal-header-info">
+          <div class="sdg-modal-icon" id="modalIcon">🎯</div>
+          <div>
+            <div class="sdg-modal-number" id="modalNumber">Goal 1</div>
+            <h3 class="sdg-modal-title" id="modalTitle">No Poverty</h3>
+          </div>
+        </div>
+        <button class="sdg-modal-close" id="modalClose">✕</button>
+      </div>
+      <div class="sdg-modal-body">
+        <p class="sdg-modal-description" id="modalDescription"></p>
+        <h4 class="sdg-modal-policies-title">🇮🇳 Indian Government Policies</h4>
+        <div id="modalPolicies">
+          <!-- Injected via JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== POLICY IMPACT DASHBOARD ===== -->
+  <section class="dashboard-section" id="dashboard">
+    <div class="container">
+      <h2 class="section-title reveal">Policy Impact Dashboard</h2>
+      <p class="section-subtitle reveal">
+        Real-time data visualizations showing how India's policies are creating measurable impact.
+      </p>
+      <div class="dashboard-grid">
+        <!-- Solar Energy Growth Chart -->
+        <div class="chart-card glass-card reveal">
+          <div class="chart-card-header">
+            <div class="chart-card-title">☀️ Solar Energy Growth (GW)</div>
+            <span class="chart-card-badge">↑ 30x Growth</span>
+          </div>
+          <div class="chart-container">
+            <div class="bar-chart" id="solarChart">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Sanitation Coverage Donut -->
+        <div class="chart-card glass-card reveal">
+          <div class="chart-card-header">
+            <div class="chart-card-title">🚿 Sanitation Coverage</div>
+            <span class="chart-card-badge">Swachh Bharat</span>
+          </div>
+          <div class="chart-container">
+            <div class="donut-chart-container" id="sanitationChart">
+              <div class="donut-chart">
+                <svg viewBox="0 0 160 160">
+                  <circle cx="80" cy="80" r="60" stroke="#e2e8f0" />
+                  <circle cx="80" cy="80" r="60" stroke="url(#sanitationGrad)" 
+                    stroke-dasharray="377" stroke-dashoffset="377" id="sanitationArc" />
+                  <defs>
+                    <linearGradient id="sanitationGrad" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#10b981" />
+                      <stop offset="100%" stop-color="#3b82f6" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="donut-center">
+                  <div class="donut-center-value" id="sanitationValue">0%</div>
+                  <div class="donut-center-label">Coverage</div>
+                </div>
+              </div>
+              <div class="donut-legend">
+                <div class="donut-legend-item">
+                  <div class="donut-legend-dot" style="background: #10b981;"></div>
+                  Rural Coverage: 100%
+                </div>
+                <div class="donut-legend-item">
+                  <div class="donut-legend-dot" style="background: #3b82f6;"></div>
+                  Urban Coverage: 98%
+                </div>
+                <div class="donut-legend-item">
+                  <div class="donut-legend-dot" style="background: #e2e8f0;"></div>
+                  Pre-2014: 39%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- River Pollution Line Chart -->
+        <div class="chart-card glass-card reveal" style="grid-column: span 2;">
+          <div class="chart-card-header">
+            <div class="chart-card-title">🏞️ Ganga River Pollution Index</div>
+            <span class="chart-card-badge">Namami Gange</span>
+          </div>
+          <div class="chart-container">
+            <svg class="line-chart-svg" viewBox="0 0 700 200" preserveAspectRatio="none" id="gangaChart">
+              <defs>
+                <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#10b981" />
+                  <stop offset="100%" stop-color="#3b82f6" />
+                </linearGradient>
+                <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(16,185,129,0.25)" />
+                  <stop offset="100%" stop-color="rgba(16,185,129,0)" />
+                </linearGradient>
+              </defs>
+              <!-- Grid lines -->
+              <line x1="0" y1="50" x2="700" y2="50" stroke="#e2e8f0" stroke-dasharray="4" />
+              <line x1="0" y1="100" x2="700" y2="100" stroke="#e2e8f0" stroke-dasharray="4" />
+              <line x1="0" y1="150" x2="700" y2="150" stroke="#e2e8f0" stroke-dasharray="4" />
+              <!-- Area -->
+              <path class="line-chart-area" id="gangaArea" fill="url(#areaGrad)" opacity="0" />
+              <!-- Line -->
+              <path class="line-chart-path" id="gangaLine" stroke="url(#lineGrad)" />
+              <!-- Dots -->
+              <g id="gangaDots"></g>
+            </svg>
+          </div>
+          <div class="chart-x-labels">
+            <span class="chart-x-label">2015</span>
+            <span class="chart-x-label">2016</span>
+            <span class="chart-x-label">2017</span>
+            <span class="chart-x-label">2018</span>
+            <span class="chart-x-label">2019</span>
+            <span class="chart-x-label">2020</span>
+            <span class="chart-x-label">2021</span>
+            <span class="chart-x-label">2022</span>
+            <span class="chart-x-label">2023</span>
+            <span class="chart-x-label">2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POLICY SIMULATOR ===== -->
+  <section class="simulator-section" id="simulator">
+    <div class="container">
+      <h2 class="section-title reveal">Policy Simulator</h2>
+      <p class="section-subtitle reveal">
+        Adjust policy parameters and see how they could impact India's sustainability metrics.
+      </p>
+      <div class="simulator-layout">
+        <div class="simulator-controls glass-card reveal-left">
+          <h3 style="font-size:1.2rem; margin-bottom: var(--space-xl); color: var(--text-primary);">
+            ⚙️ Adjust Policy Parameters
+          </h3>
+          <div class="simulator-control">
+            <div class="simulator-control-header">
+              <label class="simulator-control-label" for="solarSlider">☀️ Solar Subsidy</label>
+              <span class="simulator-control-value" id="solarValue">30%</span>
+            </div>
+            <input type="range" class="simulator-slider" id="solarSlider" min="0" max="100" value="30" />
+            <div class="simulator-control-desc">Government subsidy on solar panel installations</div>
+          </div>
+          <div class="simulator-control">
+            <div class="simulator-control-header">
+              <label class="simulator-control-label" for="plasticSlider">♻️ Plastic Ban Strictness</label>
+              <span class="simulator-control-value" id="plasticValue">50%</span>
+            </div>
+            <input type="range" class="simulator-slider" id="plasticSlider" min="0" max="100" value="50" />
+            <div class="simulator-control-desc">Level of enforcement for single-use plastic ban</div>
+          </div>
+          <div class="simulator-control">
+            <div class="simulator-control-header">
+              <label class="simulator-control-label" for="evSlider">🚗 EV Adoption Push</label>
+              <span class="simulator-control-value" id="evValue">40%</span>
+            </div>
+            <input type="range" class="simulator-slider" id="evSlider" min="0" max="100" value="40" />
+            <div class="simulator-control-desc">Incentives and infrastructure for electric vehicles</div>
+          </div>
+          <div class="simulator-control">
+            <div class="simulator-control-header">
+              <label class="simulator-control-label" for="forestSlider">🌳 Reforestation Budget</label>
+              <span class="simulator-control-value" id="forestValue">35%</span>
+            </div>
+            <input type="range" class="simulator-slider" id="forestSlider" min="0" max="100" value="35" />
+            <div class="simulator-control-desc">Budget allocation for Green India Mission</div>
+          </div>
+        </div>
+        <div class="simulator-results glass-card reveal-right">
+          <h3 style="font-size:1.2rem; margin-bottom: var(--space-xl); color: var(--text-primary);">
+            📊 Projected Impact
+          </h3>
+          <div class="result-card" id="resultCarbon">
+            <div class="result-card-header">
+              <span class="result-card-title">🌡️ Carbon Emissions Reduction</span>
+              <span class="result-card-value" id="carbonVal">22%</span>
+            </div>
+            <div class="result-bar-track">
+              <div class="result-bar-fill green" id="carbonBar" style="width: 22%;"></div>
+            </div>
+            <div style="margin-top:8px;">
+              <span class="result-delta positive" id="carbonDelta">↓ 22% reduction</span>
+            </div>
+          </div>
+          <div class="result-card" id="resultRenewable">
+            <div class="result-card-header">
+              <span class="result-card-title">⚡ Renewable Energy Share</span>
+              <span class="result-card-value" id="renewableVal">38%</span>
+            </div>
+            <div class="result-bar-track">
+              <div class="result-bar-fill blue" id="renewableBar" style="width: 38%;"></div>
+            </div>
+            <div style="margin-top:8px;">
+              <span class="result-delta positive" id="renewableDelta">↑ 38% share</span>
+            </div>
+          </div>
+          <div class="result-card" id="resultCost">
+            <div class="result-card-header">
+              <span class="result-card-title">💰 Economic Cost (₹ Lakh Cr)</span>
+              <span class="result-card-value" id="costVal">₹4.2L Cr</span>
+            </div>
+            <div class="result-bar-track">
+              <div class="result-bar-fill amber" id="costBar" style="width: 42%;"></div>
+            </div>
+            <div style="margin-top:8px;">
+              <span class="result-delta negative" id="costDelta">↑ ₹4.2 Lakh Crore</span>
+            </div>
+          </div>
+          <div class="result-card">
+            <div class="result-card-header">
+              <span class="result-card-title">🌿 Forest Cover Change</span>
+              <span class="result-card-value" id="forestVal">+2.1%</span>
+            </div>
+            <div class="result-bar-track">
+              <div class="result-bar-fill green" id="forestBar" style="width: 35%;"></div>
+            </div>
+            <div style="margin-top:8px;">
+              <span class="result-delta positive" id="forestDelta">↑ 2.1% increase</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CITIZEN VOICE ===== -->
+  <section class="citizen-section" id="citizen">
+    <div class="container">
+      <h2 class="section-title reveal">Citizen Voice</h2>
+      <p class="section-subtitle reveal">
+        Your opinion shapes India's sustainability journey. Share your priorities and vote on ideas.
+      </p>
+      <div class="citizen-layout">
+        <div class="citizen-form glass-card reveal-left">
+          <h3 style="font-size:1.2rem; margin-bottom: var(--space-xl); color: var(--text-primary);">
+            📝 Share Your Feedback
+          </h3>
+          <div class="form-group">
+            <label class="form-label" for="sdgPriority">Your SDG Priority</label>
+            <select class="form-select" id="sdgPriority">
+              <option value="">Select an SDG...</option>
+              <!-- Options injected via JS -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="policySuggestion">Policy Suggestion</label>
+            <textarea class="form-textarea" id="policySuggestion" placeholder="Share your idea for improving sustainability in India..."></textarea>
+          </div>
+          <button class="btn-primary" id="submitFeedback" style="width:100%; justify-content:center;">
+            📤 Submit Feedback
+          </button>
+
+          <div class="vote-section">
+            <h4 style="font-size:1rem; font-weight:700; margin-bottom: var(--space-md); margin-top: var(--space-md);">
+              🗳️ Vote on Sustainability Ideas
+            </h4>
+            <div class="vote-ideas" id="voteIdeas">
+              <!-- Injected via JS -->
+            </div>
+          </div>
+        </div>
+
+        <div class="citizen-results glass-card reveal-right">
+          <h3 class="citizen-chart-title">📊 Community Priority Rankings</h3>
+          <div class="priority-bars" id="priorityBars">
+            <!-- Injected via JS -->
+          </div>
+
+          <div style="margin-top: var(--space-2xl);">
+            <h4 style="font-size:1rem; font-weight:700; margin-bottom: var(--space-lg); color: var(--text-primary);">
+              📈 Submissions Over Time
+            </h4>
+            <svg class="line-chart-svg" viewBox="0 0 400 150" preserveAspectRatio="none" id="submissionsChart" style="height:150px;">
+              <defs>
+                <linearGradient id="subGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#3b82f6" />
+                  <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+                <linearGradient id="subAreaGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(59,130,246,0.2)" />
+                  <stop offset="100%" stop-color="rgba(59,130,246,0)" />
+                </linearGradient>
+              </defs>
+              <path d="M0,120 C50,100 100,90 150,70 C200,50 250,60 300,40 C350,20 380,30 400,10" 
+                fill="none" stroke="url(#subGrad)" stroke-width="3" stroke-linecap="round" id="subLine"
+                stroke-dasharray="600" stroke-dashoffset="600" />
+              <path d="M0,120 C50,100 100,90 150,70 C200,50 250,60 300,40 C350,20 380,30 400,10 L400,150 L0,150 Z" 
+                fill="url(#subAreaGrad)" opacity="0" id="subArea" />
+            </svg>
+            <div class="chart-x-labels">
+              <span class="chart-x-label">Jan</span>
+              <span class="chart-x-label">Mar</span>
+              <span class="chart-x-label">May</span>
+              <span class="chart-x-label">Jul</span>
+              <span class="chart-x-label">Sep</span>
+              <span class="chart-x-label">Nov</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">🌱 Sustainable India</div>
+          <p class="footer-description">
+            An interactive platform exploring India's journey toward achieving the 
+            United Nations Sustainable Development Goals through innovative policies.
+          </p>
+        </div>
+        <div>
+          <div class="footer-title">Explore</div>
+          <ul class="footer-links">
+            <li><a href="#explorer">SDG Goals</a></li>
+            <li><a href="#dashboard">Impact Dashboard</a></li>
+            <li><a href="#simulator">Policy Simulator</a></li>
+            <li><a href="#citizen">Citizen Voice</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Resources</div>
+          <ul class="footer-links">
+            <li><a href="https://sdgs.un.org/" target="_blank">UN SDGs</a></li>
+            <li><a href="https://niti.gov.in/" target="_blank">NITI Aayog</a></li>
+            <li><a href="https://www.india.gov.in/" target="_blank">India Gov Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <div class="footer-title">Connect</div>
+          <ul class="footer-links">
+            <li><a href="#">Share Feedback</a></li>
+            <li><a href="#">Report Issue</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Sustainable India. Built with 💚 for the planet.</span>
+        <span>Open Source · Free to Use</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== AUTH MODAL ===== -->
+  <div class="auth-modal-overlay" id="authModalOverlay">
+    <div class="auth-modal">
+      <button class="auth-modal-close" id="authModalClose">✕</button>
+      <div class="auth-modal-header">
+        <div class="auth-brand">🌱 Sustainable India</div>
+        <p class="auth-subtitle">Join the movement for a greener India</p>
+      </div>
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="loginTab" data-tab="login">Login</button>
+        <button class="auth-tab" id="signupTab" data-tab="signup">Sign Up</button>
+      </div>
+      <!-- Login Form -->
+      <form class="auth-form" id="loginForm">
+        <div class="auth-form-group">
+          <label class="auth-label" for="loginEmail">Email</label>
+          <input type="email" class="auth-input" id="loginEmail" placeholder="you@example.com" required />
+        </div>
+        <div class="auth-form-group">
+          <label class="auth-label" for="loginPassword">Password</label>
+          <input type="password" class="auth-input" id="loginPassword" placeholder="Enter your password" required />
+        </div>
+        <button type="submit" class="btn-primary auth-submit">🔑 Login</button>
+        <p class="auth-switch">Don't have an account? <a href="#" id="switchToSignup">Sign up</a></p>
+      </form>
+      <!-- Sign Up Form -->
+      <form class="auth-form" id="signupForm" style="display:none;">
+        <div class="auth-form-group">
+          <label class="auth-label" for="signupName">Full Name</label>
+          <input type="text" class="auth-input" id="signupName" placeholder="Your full name" required />
+        </div>
+        <div class="auth-form-group">
+          <label class="auth-label" for="signupEmail">Email</label>
+          <input type="email" class="auth-input" id="signupEmail" placeholder="you@example.com" required />
+        </div>
+        <div class="auth-form-group">
+          <label class="auth-label" for="signupPassword">Password</label>
+          <input type="password" class="auth-input" id="signupPassword" placeholder="Create a password (min 6 chars)" required minlength="6" />
+        </div>
+        <div class="auth-form-group">
+          <label class="auth-label" for="signupConfirm">Confirm Password</label>
+          <input type="password" class="auth-input" id="signupConfirm" placeholder="Confirm your password" required minlength="6" />
+        </div>
+        <button type="submit" class="btn-primary auth-submit">🚀 Create Account</button>
+        <p class="auth-switch">Already have an account? <a href="#" id="switchToLogin">Login</a></p>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
