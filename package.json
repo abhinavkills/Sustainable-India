@@ -1,0 +1,13 @@
+{
+  "name": "sdg-policy-explorer",
+  "version": "1.0.0",
+  "description": "Sustainable India – Interactive SDG Policy Explorer",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx serve ."
+  },
+  "keywords": [],
+  "author": "Sustainable India",
+  "license": "ISC"
+}
