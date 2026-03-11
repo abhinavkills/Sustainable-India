@@ -11,8 +11,145 @@ const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 console.log('⚡ Supabase Initialized:', SUPABASE_URL);
 
 
-// ===== SDG DATA (Fetched from Supabase) =====
-let SDG_DATA = [];
+// ===== SDG DATA (Static Reference) =====
+const SDG_DATA = [
+  { 
+    id: 1, title: "No Poverty", icon: "🔴", color: "#E5243B", 
+    description: "End poverty in all its forms everywhere.",
+    policies: [
+      { name: "PMGKAY", icon: "🍚", desc: "Free food grains to 800M people." },
+      { name: "MGNREGA", icon: "👷", desc: "100 days of guaranteed wage employment." }
+    ]
+  },
+  { 
+    id: 2, title: "Zero Hunger", icon: "🟠", color: "#DDA63A", 
+    description: "End hunger, achieve food security and improved nutrition.",
+    policies: [
+      { name: "PM-Kisan", icon: "🚜", desc: "Direct income support to small farmers." },
+      { name: "Poshan Abhiyan", icon: "🥣", desc: "Improving nutritional outcomes." }
+    ]
+  },
+  { 
+    id: 3, title: "Good Health", icon: "🟢", color: "#4C9F38", 
+    description: "Ensure healthy lives and promote well-being for all.",
+    policies: [
+      { name: "Ayushman Bharat", icon: "🏥", desc: "World's largest health insurance scheme." },
+      { name: "Mission Indradhanush", icon: "💉", desc: "Universal immunization program." }
+    ]
+  },
+  { 
+    id: 4, title: "Quality Education", icon: "🔴", color: "#C5192D", 
+    description: "Ensure inclusive and equitable quality education.",
+    policies: [
+      { name: "Samagra Shiksha", icon: "📚", desc: "Integrated school education program." },
+      { name: "PM-SHRI Schools", icon: "🏫", desc: "Modernizing schools for 21st century." }
+    ]
+  },
+  { 
+    id: 5, title: "Gender Equality", icon: "🟠", color: "#FF3A21", 
+    description: "Achieve gender equality and empower all women and girls.",
+    policies: [
+      { name: "Beti Bachao Beti Padhao", icon: "👩", desc: "Empowering the girl child." },
+      { name: "Mahila Shakti Kendras", icon: "👧", desc: "Supporting rural women workers." }
+    ]
+  },
+  { 
+    id: 6, title: "Clean Water", icon: "🔵", color: "#26BDE2", 
+    description: "Ensure availability and sustainable management of water.",
+    policies: [
+      { name: "Jal Jeevan Mission", icon: "🚰", desc: "Tap water connection to every rural home." },
+      { name: "Swachh Bharat Mission", icon: "🧹", desc: "Universal sanitation coverage." }
+    ]
+  },
+  { 
+    id: 7, title: "Affordable Energy", icon: "🟡", color: "#FCC30B", 
+    description: "Ensure access to affordable, reliable, sustainable energy.",
+    policies: [
+      { name: "PM-KUSUM", icon: "☀️", desc: "Solar pumps for farmers." },
+      { name: "Ujala Yojana", icon: "💡", desc: "Distribution of efficient LED bulbs." }
+    ]
+  },
+  { 
+    id: 8, title: "Decent Work", icon: "🟤", color: "#A21942", 
+    description: "Promote sustained, inclusive and sustainable economic growth.",
+    policies: [
+      { name: "Make in India", icon: "🏭", desc: "Boosting manufacturing and jobs." },
+      { name: "Skill India", icon: "🎓", desc: "Empowering youth with market skills." }
+    ]
+  },
+  { 
+    id: 9, title: "Industry & Innovation", icon: "🟠", color: "#FD6925", 
+    description: "Build resilient infrastructure and foster innovation.",
+    policies: [
+      { name: "Digital India", icon: "💻", desc: "Transforming India into a digitally empowered society." },
+      { name: "PM GatiShakti", icon: "🚄", desc: "Master Plan for Multi-modal Connectivity." }
+    ]
+  },
+  { 
+    id: 10, title: "Reduced Inequality", icon: "🟣", color: "#DD1367", 
+    description: "Reduce inequality within and among countries.",
+    policies: [
+      { name: "Stand Up India", icon: "🏦", desc: "Loans to SC/ST and Women entrepreneurs." },
+      { name: "PM-JANMAN", icon: "🛖", desc: "Tribal development mission." }
+    ]
+  },
+  { 
+    id: 11, title: "Sustainable Cities", icon: "🟠", color: "#FD9D24", 
+    description: "Make cities and human settlements inclusive and safe.",
+    policies: [
+      { name: "Smart Cities Mission", icon: "🏙️", desc: "Urban renewal and retrofitting." },
+      { name: "PM Awas Yojana", icon: "🏠", desc: "Housing for all by 2024." }
+    ]
+  },
+  { 
+    id: 12, title: "Responsible Consumption", icon: "🟡", color: "#BF8B2E", 
+    description: "Ensure sustainable consumption and production patterns.",
+    policies: [
+      { name: "Mission LiFE", icon: "🌱", desc: "Lifestyle For Environment." },
+      { name: "Plastic Waste Management", icon: "♻️", desc: "Rules for reducing plastic." }
+    ]
+  },
+  { 
+    id: 13, title: "Climate Action", icon: "🟢", color: "#3F7E44", 
+    description: "Take urgent action to combat climate change.",
+    policies: [
+      { name: "National Solar Mission", icon: "🌞", desc: "Global leader in renewable energy." },
+      { name: "Green Hydrogen Mission", icon: "🔋", desc: "Clean energy transitions." }
+    ]
+  },
+  { 
+    id: 14, title: "Life Below Water", icon: "🔵", color: "#0A97D9", 
+    description: "Conserve and sustainably use the oceans and seas.",
+    policies: [
+      { name: "Deep Ocean Mission", icon: "🌊", desc: "Underwater exploration and conservation." },
+      { name: "PM Matsya Sampada", icon: "🐟", desc: "Sustainable fisheries development." }
+    ]
+  },
+  { 
+    id: 15, title: "Life on Land", icon: "🟢", color: "#56C02B", 
+    description: "Protect, restore and promote sustainable use of ecosystems.",
+    policies: [
+      { name: "Green India Mission", icon: "🌲", desc: "Increasing forest cover." },
+      { name: "Project Tiger", icon: "🐅", desc: "Wildlife conservation programs." }
+    ]
+  },
+  { 
+    id: 16, title: "Peace & Justice", icon: "🔵", color: "#00689D", 
+    description: "Promote peaceful and inclusive societies.",
+    policies: [
+      { name: "E-Courts Mission", icon: "⚖️", desc: "Digitizing Indian justice system." },
+      { name: "Lokpal", icon: "👮", desc: "Anti-corruption ombudsman bodies." }
+    ]
+  },
+  { 
+    id: 17, title: "Partnerships", icon: "🔵", color: "#19486A", 
+    description: "Strengthen the means of implementation for the SDGs.",
+    policies: [
+      { name: "ISA", icon: "🤝", desc: "International Solar Alliance." },
+      { name: "Global South Co-op", icon: "🌍", desc: "Leading global climate partnerships." }
+    ]
+  }
+];
 
 // ===== VOTING IDEAS DATA (Fetched from Supabase) =====
 let VOTE_IDEAS = [];
@@ -47,9 +184,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 async function fetchSupabaseData() {
   try {
-    const { data: goals, error: goalsErr } = await supabaseClient.from('sdg_goals').select('*').order('id');
-    if (!goalsErr) SDG_DATA = goals;
-
+    // We now use the static SDG_DATA for the wheel structure, 
+    // and only fetch dynamic community data (votes & feedback) from Supabase.
+    
     const { data: votes, error: votesErr } = await supabaseClient.from('vote_ideas').select('*').order('id');
     if (!votesErr) VOTE_IDEAS = votes;
 
@@ -80,29 +217,19 @@ function initAuth() {
   // Check for existing session using Supabase
   supabaseClient.auth.getSession().then(({ data: { session } }) => {
     if (session) {
-      currentUser = { 
-        id: session.user.id,
-        name: session.user.user_metadata.full_name || session.user.email, 
-        email: session.user.email 
-      };
-      updateNavbarAuth();
-      updateCitizenLock();
+      handleUserSession(session);
     }
   });
 
   // Listen for auth changes
   supabaseClient.auth.onAuthStateChange((_event, session) => {
     if (session) {
-      currentUser = { 
-        id: session.user.id,
-        name: session.user.user_metadata.full_name || session.user.email, 
-        email: session.user.email 
-      };
+      handleUserSession(session);
     } else {
       currentUser = null;
+      updateNavbarAuth();
+      updateCitizenLock();
     }
-    updateNavbarAuth();
-    updateCitizenLock();
   });
 
   // Modal controls
@@ -134,6 +261,30 @@ function initAuth() {
     e.preventDefault();
     handleSignup();
   });
+}
+
+async function handleUserSession(session) {
+  // First set session data as fallback
+  currentUser = { 
+    id: session.user.id,
+    name: session.user.user_metadata.full_name || session.user.email, 
+    email: session.user.email 
+  };
+  
+  updateNavbarAuth();
+  updateCitizenLock();
+
+  // Then fetch the "joined" profile data for more accurate info
+  const { data: profile, error } = await supabaseClient
+    .from('profiles')
+    .select('*')
+    .eq('id', session.user.id)
+    .single();
+
+  if (!error && profile) {
+    currentUser.name = profile.full_name || currentUser.name;
+    updateNavbarAuth(); // Re-render with profile name
+  }
 }
 
 function openAuthModal(tab = 'login') {
@@ -505,82 +656,180 @@ function initFloatingIcons() {
 }
 
 // ===== SDG WHEEL =====
+// ===== SDG WHEEL =====
 let selectedSDG = 0;
-let wheelRotation = 0;
 
 function initSDGWheel() {
-  const wheel = document.getElementById('sdgWheel');
+  const ring = document.getElementById('sdgWheelRing');
   const container = document.getElementById('sdgWheelContainer');
-  const radius = 135;
-  const centerX = 170;
-  const centerY = 170;
+  if (!ring) return;
+
+  const size = 480;
+  const center = size / 2;
+  const innerR = 100;
+  const outerR = 180;
+  const iconR = 215;
+
+  // Helper for polar coordinates
+  function polarToCartesian(cx, cy, r, angleInDegrees) {
+    const rad = (angleInDegrees - 90) * Math.PI / 180.0;
+    return {
+      x: cx + (r * Math.cos(rad)),
+      y: cy + (r * Math.sin(rad))
+    };
+  }
+
+  function describeSegment(cx, cy, iR, oR, startA, endA) {
+    const iStart = polarToCartesian(cx, cy, iR, startA);
+    const iEnd = polarToCartesian(cx, cy, iR, endA);
+    const oStart = polarToCartesian(cx, cy, oR, startA);
+    const oEnd = polarToCartesian(cx, cy, oR, endA);
+    const sweep = endA - startA <= 180 ? "0" : "1";
+    return [
+      "M", iStart.x, iStart.y,
+      "L", oStart.x, oStart.y,
+      "A", oR, oR, 0, sweep, 1, oEnd.x, oEnd.y,
+      "L", iEnd.x, iEnd.y,
+      "A", iR, iR, 0, sweep, 0, iStart.x, iStart.y,
+      "Z"
+    ].join(" ");
+  }
+
+  // Create SVG
+  const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  svg.setAttribute("viewBox", `0 0 ${size} ${size}`);
+  svg.style.width = "100%";
+  svg.style.height = "100%";
+
+  const segmentCount = SDG_DATA.length;
+  const anglePerSegment = 360 / segmentCount;
 
   SDG_DATA.forEach((sdg, i) => {
-    const angle = (i * (360 / 17) - 90) * (Math.PI / 180);
-    const x = centerX + radius * Math.cos(angle) - 22;
-    const y = centerY + radius * Math.sin(angle) - 22;
+    const startA = i * anglePerSegment;
+    const endA = (i + 1) * anglePerSegment;
+    const midA = (startA + endA) / 2;
 
-    const item = document.createElement('div');
-    item.className = 'sdg-wheel-item';
-    item.style.left = `${x}px`;
-    item.style.top = `${y}px`;
-    item.style.background = sdg.color;
-    item.innerHTML = `
-      <span>${sdg.id}</span>
-      <span class="tooltip">${sdg.title}</span>
-    `;
+    const g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    g.setAttribute("class", "sdg-segment");
+    g.style.transitionDelay = `${i * 0.05}s`;
 
-    item.addEventListener('click', () => {
-      selectSDG(sdg.id - 1);
-      openModal(sdg.id - 1);
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", describeSegment(center, center, innerR, outerR, startA, endA));
+    path.setAttribute("fill", sdg.color);
+    g.appendChild(path);
+
+    // SVG Text with stacking for multi-line support
+    const textRadius = innerR + (outerR - innerR) * 0.55;
+    const textPos = polarToCartesian(center, center, textRadius, midA);
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", textPos.x);
+    text.setAttribute("y", textPos.y);
+    text.setAttribute("class", "sdg-segment-text");
+    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("transform", `rotate(${midA}, ${textPos.x}, ${textPos.y})`);
+    
+    // Split into words and create tspans
+    const words = sdg.title.split(' ');
+    const maxWords = 2;
+    const displayWords = words.length > maxWords ? words.slice(0, maxWords) : words;
+    
+    displayWords.forEach((word, index) => {
+      const tspan = document.createElementNS("http://www.w3.org/2000/svg", "tspan");
+      tspan.setAttribute("x", textPos.x);
+      tspan.setAttribute("dy", index === 0 ? "-0.2em" : "1.1em");
+      tspan.textContent = word;
+      text.appendChild(tspan);
     });
+    g.appendChild(text);
 
-    wheel.appendChild(item);
+    // Number circles on inner edge
+    const numR = innerR + 12;
+    const numPos = polarToCartesian(center, center, numR, midA);
+    const circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    circle.setAttribute("cx", numPos.x);
+    circle.setAttribute("cy", numPos.y);
+    circle.setAttribute("r", "10");
+    circle.setAttribute("class", "sdg-segment-number-circle");
+    g.appendChild(circle);
+
+    const numText = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    numText.setAttribute("x", numPos.x);
+    numText.setAttribute("y", numPos.y);
+    numText.setAttribute("class", "sdg-segment-number-text");
+    numText.textContent = sdg.id;
+    g.appendChild(numText);
+
+    g.addEventListener('click', () => {
+      selectSDG(i);
+      openModal(i);
+    });
+    
+    svg.appendChild(g);
+
+    // Orbiting Icons
+    const iconPos = polarToCartesian(center, center, iconR, midA);
+    const orb = document.createElement('div');
+    orb.className = 'sdg-icon-orb';
+    orb.style.left = `${iconPos.x - 23}px`;
+    orb.style.top = `${iconPos.y - 23}px`;
+    orb.innerHTML = `<span class="emoji">${sdg.icon}</span>`;
+    orb.addEventListener('click', () => {
+      selectSDG(i);
+      openModal(i);
+    });
+    ring.appendChild(orb);
   });
 
-  // Show wheel on right edge hover
-  let hoverZone = 80;
+  ring.appendChild(svg);
+
+  // Edge trigger logic
   document.addEventListener('mousemove', (e) => {
-    if (window.innerWidth - e.clientX < hoverZone) {
-      container.classList.add('visible');
-    } else if (window.innerWidth - e.clientX > 350) {
-      container.classList.remove('visible');
+    const distanceToEdge = window.innerWidth - e.clientX;
+    const distanceToCenterY = Math.abs(e.clientY - window.innerHeight / 2);
+    
+    const isTouchingEdge = distanceToEdge < 35;
+    const isAlreadyActive = container.classList.contains('active');
+    const isInsideWheelArea = distanceToEdge < 400 && distanceToCenterY < 240;
+    
+    // Activate only from edge, maintain if mouse stays on wheel
+    if (isTouchingEdge || (isAlreadyActive && isInsideWheelArea)) {
+      container.classList.add('active');
+    } else {
+      container.classList.remove('active');
     }
   });
 
-  // Smooth lerp-based wheel rotation on scroll
+  // Rotation logic
   let targetRotation = 0;
   let currentRotation = 0;
   let lastScroll = 0;
-  let rafId = null;
 
   window.addEventListener('scroll', () => {
     const delta = window.scrollY - lastScroll;
-    targetRotation += delta * 0.06;
+    targetRotation += delta * 0.05;
     lastScroll = window.scrollY;
   }, { passive: true });
 
   function animateWheel() {
     currentRotation += (targetRotation - currentRotation) * 0.08;
-    wheel.style.transform = `rotate(${currentRotation}deg)`;
+    ring.style.transform = `rotate(${currentRotation}deg)`;
 
-    // Counter-rotate items to keep them upright
-    wheel.querySelectorAll('.sdg-wheel-item').forEach(item => {
-      const existingScale = item.classList.contains('selected') ? 'scale(1.4)' :
-                            item.matches(':hover') ? 'scale(1.35)' : '';
-      item.style.transform = `rotate(${-currentRotation}deg) ${existingScale}`;
+    // Keep icons upright
+    ring.querySelectorAll('.sdg-icon-orb').forEach(orb => {
+      orb.style.transform = `rotate(${-currentRotation}deg)`;
     });
 
-    rafId = requestAnimationFrame(animateWheel);
+    requestAnimationFrame(animateWheel);
   }
   animateWheel();
 }
 
 function selectSDG(index) {
   selectedSDG = index;
-  const items = document.querySelectorAll('.sdg-wheel-item');
-  items.forEach((item, i) => {
-    item.classList.toggle('selected', i === index);
+  // Update grid cards
+  const cards = document.querySelectorAll('.sdg-card');
+  cards.forEach((card, i) => {
+    card.classList.toggle('selected', i === index);
   });
 }
 
