@@ -3,185 +3,37 @@
 // Main Application Logic
 // ===================================================================
 
-// ===== SDG DATA =====
-const SDG_DATA = [
-  {
-    id: 1, title: "No Poverty", icon: "🏠", color: "#e5243b",
-    description: "End poverty in all its forms. India has lifted over 415 million people out of multidimensional poverty between 2005 and 2021, and continues to empower rural communities through direct benefit transfers and social safety nets.",
-    policies: [
-      { name: "PM-KISAN", icon: "🌾", color: "#e5243b22", desc: "Direct income support of ₹6,000/year to 110 million farmers, boosting local economies." },
-      { name: "MGNREGA", icon: "👷", color: "#e5243b22", desc: "Providing 100 days of guaranteed wage employment to rural households across India." },
-      { name: "Jan Dhan Yojana", icon: "🏦", color: "#e5243b22", desc: "Ensured 500M+ unbanked Indians have access to financial services and credit." }
-    ]
-  },
-  {
-    id: 2, title: "Zero Hunger", icon: "🌾", color: "#dda63a",
-    description: "End hunger and improve nutrition. India's PM Garib Kalyan Anna Yojana is one of the world's largest food security programs, serving over 800 million citizens.",
-    policies: [
-      { name: "PMGKAY", icon: "🍚", color: "#dda63a22", desc: "Free food grains to 800 million beneficiaries, ensuring food security during challenging times." },
-      { name: "POSHAN Abhiyaan", icon: "🤰", color: "#dda63a22", desc: "National Nutrition Mission aiming to reduce stunting and anemia among children and women." },
-      { name: "One Nation One Ration Card", icon: "🎫", color: "#dda63a22", desc: "Ensuring food security for migrant workers anywhere in India." }
-    ]
-  },
-  {
-    id: 3, title: "Good Health", icon: "❤️", color: "#4c9f38",
-    description: "Universal health coverage. India's Ayushman Bharat is the world's largest government-funded healthcare program, providing a safety net for 500 million people.",
-    policies: [
-      { name: "Ayushman Bharat", icon: "🏥", color: "#4c9f3822", desc: "Health cover of ₹5 lakh per family per year for secondary and tertiary care hospitalization." },
-      { name: "National Health Mission", icon: "🚑", color: "#4c9f3822", desc: "Strengthening rural and urban health systems across India." },
-      { name: "Mission Indradhanush", icon: "💉", color: "#4c9f3822", desc: "Full immunization coverage for children and pregnant women." }
-    ]
-  },
-  {
-    id: 4, title: "Quality Education", icon: "📚", color: "#c5192d",
-    description: "Inclusive and equitable education. The National Education Policy 2020 aims to transform India into a global knowledge superpower.",
-    policies: [
-      { name: "NEP 2020", icon: "🎓", color: "#c5192d22", desc: "A visionary framework for school and higher education, emphasizing 21st-century skills." },
-      { name: "Samagra Shiksha", icon: "🏫", color: "#c5192d22", desc: "Integrated scheme for school education from pre-school to class 12." },
-      { name: "DIKSHA", icon: "💻", color: "#c5192d22", desc: "National digital infrastructure for teachers and students across all states." }
-    ]
-  },
-  {
-    id: 5, title: "Gender Equality", icon: "⚖️", color: "#ff3a21",
-    description: "Empowering women and girls. India has seen a significant increase in female workforce participation and entrepreneurship through targeted schemes.",
-    policies: [
-      { name: "Beti Bachao Beti Padhao", icon: "👧", color: "#ff3a2122", desc: "Celebrating the girl child and ensuring her education and protection." },
-      { name: "Pradhan Mantri Matru Vandana Yojana", icon: "🤱", color: "#ff3a2122", desc: "Maternity benefit scheme for pregnant and lactating mothers." },
-      { name: "Stand-Up India", icon: "🚀", color: "#ff3a2122", desc: "Facilitating bank loans for women and SC/ST entrepreneurs." }
-    ]
-  },
-  {
-    id: 6, title: "Clean Water & Sanitation", icon: "💧", color: "#26bde2",
-    description: "Clean water for all. The Jal Jeevan Mission is transforming rural India by providing tap water connections to every household.",
-    policies: [
-      { name: "Jal Jeevan Mission", icon: "🚰", color: "#26bde222", desc: "Har Ghar Jal: Providing safe and adequate drinking water through individual tap connections." },
-      { name: "Swachh Bharat Mission", icon: "🚽", color: "#26bde222", desc: "A mass movement that made India Open Defecation Free (ODF)." },
-      { name: "Namami Gange", icon: "🏞️", color: "#26bde222", desc: "Integrated conservation mission to clean and protect the River Ganga." }
-    ]
-  },
-  {
-    id: 7, title: "Afforable & Clean Energy", icon: "⚡", color: "#fcc30b",
-    description: "Powering India sustainably. India is home to the world's largest renewable energy expansion program, aiming for 500 GW by 2030.",
-    policies: [
-      { name: "PM-KUSUM", icon: "🚜", color: "#fcc30b22", desc: "De-dieselization of the farm sector by installing solar pumps." },
-      { name: "National Solar Mission", icon: "☀️", color: "#fcc30b22", desc: "Promoting ecologically sustainable growth while addressing India's energy security." },
-      { name: "PM Ujjwala Yojana", icon: "🔥", color: "#fcc30b22", desc: "Providing clean cooking fuel (LPG) to women from BPL households." }
-    ]
-  },
-  {
-    id: 8, title: "Decent Work & Growth", icon: "💼", color: "#a21942",
-    description: "Inclusive economic growth. Initiatives like 'Make in India' and 'Startup India' are creating millions of jobs and fostering innovation.",
-    policies: [
-      { name: "Make in India", icon: "🏗️", color: "#a2194222", desc: "Transforming India into a global design and manufacturing hub." },
-      { name: "Startup India", icon: "🚀", color: "#a2194222", desc: "Nurturing an ecosystem for startups to drive sustainable economic growth." },
-      { name: "PM Mudra Yojana", icon: "💳", color: "#a2194222", desc: "Providing loans to non-corporate, non-farm small/micro enterprises." }
-    ]
-  },
-  {
-    id: 9, title: "Industry & Innovation", icon: "🔬", color: "#fd6925",
-    description: "Resilient infrastructure. India is rapidly digitizing its economy and building world-class infrastructure through the Gati Shakti master plan.",
-    policies: [
-      { name: "PM Gati Shakti", icon: "🛤️", color: "#fd692522", desc: "National Master Plan for multi-modal connectivity to reduce logistics costs." },
-      { name: "Digital India", icon: "📱", color: "#fd692522", desc: "Empowering citizens with digital access to government services." },
-      { name: "Atal Innovation Mission", icon: "💡", color: "#fd692522", desc: "Promoting a culture of innovation and entrepreneurship across India." }
-    ]
-  },
-  {
-    id: 10, title: "Reduced Inequalities", icon: "🤝", color: "#dd1367",
-    description: "Equal opportunities for all. India's focus on Aspirational Districts ensures that development reaches the most remote and underserved areas.",
-    policies: [
-      { name: "Aspirational Districts Program", icon: "📍", color: "#dd136722", desc: "Transforming the most under-developed districts through data-driven governance." },
-      { name: "PM-JANMAN", icon: "🛖", color: "#dd136722", desc: "Focusing on the upliftment of Particularly Vulnerable Tribal Groups (PVTGs)." },
-      { name: "Stand-Up India", icon: "📈", color: "#dd136722", desc: "Promoting entrepreneurship among SC, ST, and women." }
-    ]
-  },
-  {
-    id: 11, title: "Sustainable Cities", icon: "🏙️", color: "#fd9d24",
-    description: "Inclusive urban development. Smart Cities Mission and PM Awas Yojana are redefining urban living in India.",
-    policies: [
-      { name: "Smart Cities Mission", icon: "🏙️", color: "#fd9d2422", desc: "Developing 100 cities to be citizen-friendly and sustainable." },
-      { name: "PM Awas Yojana (Urban)", icon: "🏠", color: "#fd9d2422", desc: "Providing all-weather pucca houses to all eligible urban households." },
-      { name: "FAME India", icon: "🔌", color: "#fd9d2422", desc: "Faster Adoption and Manufacturing of Electric Vehicles for sustainable transport." }
-    ]
-  },
-  {
-    id: 12, title: "Responsible Consumption", icon: "♻️", color: "#bf8b2e",
-    description: "Circular economy. India's LiFE (Lifestyle for Environment) movement encourages citizens to adopt sustainable habits.",
-    policies: [
-      { name: "Mission LiFE", icon: "🌱", color: "#bf8b2e22", desc: "A global movement to nudge individuals toward mindful and deliberate utilization." },
-      { name: "GOBARdhan", icon: "🐄", color: "#bf8b2e22", desc: "Converting cattle dung and solid waste into compost and biogas." },
-      { name: "Single-Use Plastic Ban", icon: "🚫", color: "#bf8b2e22", desc: "Reducing plastic waste through a nationwide ban on identified single-use items." }
-    ]
-  },
-  {
-    id: 13, title: "Climate Action", icon: "🌍", color: "#3f7e44",
-    description: "Combating climate change. India's 'Panchamrit' goals at COP26 demonstrate its commitment to a net-zero future by 2070.",
-    policies: [
-      { name: "Panchamrit", icon: "🎯", color: "#3f7e4422", desc: "India's 5-point climate action plan including 500 GW non-fossil capacity." },
-      { name: "National Green Hydrogen Mission", icon: "💨", color: "#3f7e4422", desc: "Making India a global hub for the production and export of Green Hydrogen." },
-      { name: "Green India Mission", icon: "🌲", color: "#3f7e4422", desc: "Protecting, restoring, and enhancing India's diminishing forest cover." }
-    ]
-  },
-  {
-    id: 14, title: "Life Below Water", icon: "🐟", color: "#0a97d9",
-    description: "Marine conservation. India's Deep Ocean Mission and Sagarmala project aim for sustainable blue economy growth.",
-    policies: [
-      { name: "Deep Ocean Mission", icon: "🌊", color: "#0a97d922", desc: "Exploring the deep ocean for resources and developing deep-sea technologies." },
-      { name: "Sagarmala", icon: "🚢", color: "#0a97d922", desc: "Port-led development that integrates coastal community upliftment." },
-      { name: "Blue Revolution", icon: "🐠", color: "#0a97d922", desc: "Integrated development and management of fisheries." }
-    ]
-  },
-  {
-    id: 15, title: "Life on Land", icon: "🌳", color: "#56c02b",
-    description: "Protecting biodiversity. India has successfully doubled its tiger population and is restoring vast tracts of degraded land.",
-    policies: [
-      { name: "Project Tiger & Project Elephant", icon: "🐅", color: "#56c02b22", desc: "Iconic conservation programs protecting India's national heritage and wildlife." },
-      { name: "Compensatory Afforestation", icon: "🌲", color: "#56c02b22", desc: "Ensuring land restoration and forest growth through CAMPA funds." },
-      { name: "Desertification Control", icon: "🏜️", color: "#56c02b22", desc: "Restoring 26 million hectares of degraded land by 2030." }
-    ]
-  },
-  {
-    id: 16, title: "Peace & Justice", icon: "🕊️", color: "#00689d",
-    description: "Strong institutions. India is digitizing its justice system and empowering citizens through the Right to Information and Digital Courts.",
-    policies: [
-      { name: "e-Courts Mission Mode Project", icon: "⚖️", color: "#00689d22", desc: "Transforming Indian courts into digital-ready institutions for speedy justice." },
-      { name: "RTI Act", icon: "📄", color: "#00689d22", desc: "Empowering citizens to seek information and ensure government accountability." },
-      { name: "Universal ID (Aadhaar)", icon: "🆔", color: "#00689d22", desc: "Providing a unique identity to 1.3 billion+ Indians for seamless service delivery." }
-    ]
-  },
-  {
-    id: 17, title: "Partnerships for Goals", icon: "🤝", color: "#19486a",
-    description: "Global leadership. India leads global initiatives like the International Solar Alliance and the Coalition for Disaster Resilient Infrastructure.",
-    policies: [
-      { name: "International Solar Alliance", icon: "☀️", color: "#19486a22", desc: "An India-led global alliance to promote solar energy usage across the world." },
-      { name: "CDRI", icon: "🏗️", color: "#19486a22", desc: "Coalition for Disaster Resilient Infrastructure, promoting climate-proof systems." },
-      { name: "G20 Presidency (One Earth, One Family, One Future)", icon: "🌏", color: "#19486a22", desc: "India's leadership in driving global consensus on sustainable development." }
-    ]
-  }
-];
+// ===== SUPABASE CONFIGURATION =====
+const SUPABASE_URL = 'https://sqlqkbkruatlzxvanwuv.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNxbHFrYmtydWF0bHp4dmFud3V2Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMyMzM1MjAsImV4cCI6MjA4ODgwOTUyMH0.SQtyhZHdRlMUmKaRom69DS7jp0hS6dMdT617xk3jJ4Q';
+const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-// ===== VOTING IDEAS DATA =====
-const VOTE_IDEAS = [
-  { id: 1, text: "Mandatory solar panels on all government buildings in India", votes: 0 },
-  { id: 2, text: "Expand Metro Rail networks to Tier-2 Indian cities", votes: 0 },
-  { id: 3, text: "Introduce carbon tax for heavy industries in India", votes: 0 },
-  { id: 4, text: "Nationwide scale-up of vertical farming in urban areas", votes: 0 },
-  { id: 5, text: "Subsidies for indigenous eco-friendly building materials", votes: 0 }
-];
+console.log('⚡ Supabase Initialized:', SUPABASE_URL);
+
+
+// ===== SDG DATA (Fetched from Supabase) =====
+let SDG_DATA = [];
+
+// ===== VOTING IDEAS DATA (Fetched from Supabase) =====
+let VOTE_IDEAS = [];
 
 // ===== PRIORITY DATA (dynamically built from user submissions) =====
-const PRIORITY_DATA = [];
+let PRIORITY_DATA = [];
 
 // ===================================================================
 // INITIALIZATION
 // ===================================================================
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   initScrollProgress();
   initCursorGlow();
   initNavbar();
   initAuth();
   initTheme();
   initFloatingIcons();
+  
+  // Wait for Supabase Data before initializing SDG UI
+  await fetchSupabaseData();
+  
   initSDGWheel();
   initSDGGrid();
   initSDGModal();
@@ -193,22 +45,65 @@ document.addEventListener('DOMContentLoaded', () => {
   initParallaxBlobs();
 });
 
+async function fetchSupabaseData() {
+  try {
+    const { data: goals, error: goalsErr } = await supabaseClient.from('sdg_goals').select('*').order('id');
+    if (!goalsErr) SDG_DATA = goals;
+
+    const { data: votes, error: votesErr } = await supabaseClient.from('vote_ideas').select('*').order('id');
+    if (!votesErr) VOTE_IDEAS = votes;
+
+    // Fetch priority counts
+    const { data: feedback, error: feedErr } = await supabaseClient.from('citizen_feedback').select('sdg_id');
+    if (!feedErr) {
+       const counts = {};
+       feedback.forEach(f => {
+          counts[f.sdg_id] = (counts[f.sdg_id] || 0) + 1;
+       });
+       PRIORITY_DATA = SDG_DATA.map(s => ({
+          label: s.title,
+          value: counts[s.id] || 0,
+          color: s.color
+       })).filter(p => p.value > 0);
+    }
+  } catch (e) {
+    console.error('Supabase fetch failed, using fallback empty state');
+  }
+}
+
 // ===================================================================
 // AUTHENTICATION SYSTEM
 // ===================================================================
 let currentUser = null;
 
 function initAuth() {
-  // Check for existing session
-  const session = localStorage.getItem('sdg_current_user');
-  if (session) {
-    try {
-      currentUser = JSON.parse(session);
+  // Check for existing session using Supabase
+  supabaseClient.auth.getSession().then(({ data: { session } }) => {
+    if (session) {
+      currentUser = { 
+        id: session.user.id,
+        name: session.user.user_metadata.full_name || session.user.email, 
+        email: session.user.email 
+      };
       updateNavbarAuth();
-    } catch(e) {
-      localStorage.removeItem('sdg_current_user');
+      updateCitizenLock();
     }
-  }
+  });
+
+  // Listen for auth changes
+  supabaseClient.auth.onAuthStateChange((_event, session) => {
+    if (session) {
+      currentUser = { 
+        id: session.user.id,
+        name: session.user.user_metadata.full_name || session.user.email, 
+        email: session.user.email 
+      };
+    } else {
+      currentUser = null;
+    }
+    updateNavbarAuth();
+    updateCitizenLock();
+  });
 
   // Modal controls
   const overlay = document.getElementById('authModalOverlay');
@@ -239,9 +134,6 @@ function initAuth() {
     e.preventDefault();
     handleSignup();
   });
-
-  // Apply lock on citizen voice if not logged in
-  updateCitizenLock();
 }
 
 function openAuthModal(tab = 'login') {
@@ -301,7 +193,7 @@ function simpleHash(str) {
   return hash.toString(36);
 }
 
-function handleSignup() {
+async function handleSignup() {
   const name = document.getElementById('signupName').value.trim();
   const email = document.getElementById('signupEmail').value.trim().toLowerCase();
   const password = document.getElementById('signupPassword').value;
@@ -322,34 +214,29 @@ function handleSignup() {
     return;
   }
 
-  const users = getRegisteredUsers();
+  const { data, error } = await supabaseClient.auth.signUp({
+    email,
+    password,
+    options: {
+      data: { full_name: name }
+    }
+  });
 
-  if (users.find(u => u.email === email)) {
-    showToast('An account with this email already exists', 'warning');
+  if (error) {
+    showToast(error.message, 'warning');
     return;
   }
 
-  const newUser = {
-    name,
-    email,
-    passwordHash: simpleHash(password),
-    createdAt: new Date().toISOString()
-  };
-
-  users.push(newUser);
-  saveRegisteredUsers(users);
-
-  // Auto-login after signup
-  currentUser = { name: newUser.name, email: newUser.email };
-  localStorage.setItem('sdg_current_user', JSON.stringify(currentUser));
-
   closeAuthModal();
-  updateNavbarAuth();
-  updateCitizenLock();
-  showToast(`Welcome, ${newUser.name}! 🎉 Your account has been created.`, 'success');
+  
+  if (data.session) {
+    showToast(`Welcome, ${name}! 🎉 You have been logged in automatically.`, 'success');
+  } else {
+    showToast(`Welcome, ${name}! 🎉 Please check your email to verify your account.`, 'success');
+  }
 }
 
-function handleLogin() {
+async function handleLogin() {
   const email = document.getElementById('loginEmail').value.trim().toLowerCase();
   const password = document.getElementById('loginPassword').value;
 
@@ -358,34 +245,31 @@ function handleLogin() {
     return;
   }
 
-  const users = getRegisteredUsers();
-  const user = users.find(u => u.email === email);
+  const { data, error } = await supabaseClient.auth.signInWithPassword({
+    email,
+    password
+  });
 
-  if (!user) {
-    showToast('No account found with this email', 'warning');
+  if (error) {
+    if (error.message.toLowerCase().includes('email not confirmed')) {
+      showToast('⚠️ Email verification required. Check your inbox or disable "Confirm email" in Supabase Auth settings.', 'warning');
+    } else {
+      showToast(error.message, 'warning');
+    }
     return;
   }
-
-  if (user.passwordHash !== simpleHash(password)) {
-    showToast('Incorrect password', 'warning');
-    return;
-  }
-
-  currentUser = { name: user.name, email: user.email };
-  localStorage.setItem('sdg_current_user', JSON.stringify(currentUser));
 
   closeAuthModal();
-  updateNavbarAuth();
-  updateCitizenLock();
-  showToast(`Welcome back, ${user.name}! 🌱`, 'success');
+  showToast(`Welcome back! 🌱`, 'success');
 }
 
-function handleLogout() {
-  currentUser = null;
-  localStorage.removeItem('sdg_current_user');
-  updateNavbarAuth();
-  updateCitizenLock();
-  showToast('You have been logged out', 'info');
+async function handleLogout() {
+  const { error } = await supabaseClient.auth.signOut();
+  if (error) {
+    showToast(error.message, 'warning');
+  } else {
+    showToast('You have been logged out', 'info');
+  }
 }
 
 function updateNavbarAuth() {
@@ -1097,7 +981,7 @@ function initCitizenVoice() {
   });
 
   // Vote click
-  voteContainer.addEventListener('click', (e) => {
+  voteContainer.addEventListener('click', async (e) => {
     const btn = e.target.closest('.vote-btn');
     if (!btn) return;
     if (!isLoggedIn()) {
@@ -1107,12 +991,27 @@ function initCitizenVoice() {
     const id = parseInt(btn.dataset.id);
     const idea = VOTE_IDEAS.find(v => v.id === id);
     if (idea && !btn.classList.contains('voted')) {
+      // Optimistic Update
       idea.votes++;
       btn.querySelector('.vote-count').textContent = formatNumber(idea.votes);
       btn.classList.add('voted');
-      btn.style.transform = 'scale(1.15)';
-      setTimeout(() => { btn.style.transform = ''; }, 300);
-      createBurst(btn);
+      
+      // Update Supabase
+      const { error } = await supabaseClient
+        .from('vote_ideas')
+        .update({ votes: idea.votes })
+        .eq('id', id);
+
+      if (error) {
+        idea.votes--;
+        btn.querySelector('.vote-count').textContent = formatNumber(idea.votes);
+        btn.classList.remove('voted');
+        showToast('Vote failed to save. Please try again.', 'warning');
+      } else {
+        btn.style.transform = 'scale(1.15)';
+        setTimeout(() => { btn.style.transform = ''; }, 300);
+        createBurst(btn);
+      }
     }
   });
 
@@ -1137,15 +1036,15 @@ function initCitizenVoice() {
   }
 
   // Submit feedback handler
-  document.getElementById('submitFeedback').addEventListener('click', () => {
+  document.getElementById('submitFeedback').addEventListener('click', async () => {
     if (!isLoggedIn()) {
       openAuthModal('login');
       return;
     }
-    const priority = document.getElementById('sdgPriority').value;
+    const sdgId = document.getElementById('sdgPriority').value;
     const suggestion = document.getElementById('policySuggestion').value;
 
-    if (!priority) {
+    if (!sdgId) {
       showToast('Please select an SDG priority', 'warning');
       return;
     }
@@ -1154,21 +1053,26 @@ function initCitizenVoice() {
       return;
     }
 
-    // Track the submission in PRIORITY_DATA
-    const sdg = SDG_DATA.find(s => s.id === parseInt(priority));
-    if (sdg) {
-      const existing = PRIORITY_DATA.find(p => p.label === sdg.title);
-      if (existing) {
-        existing.value++;
-      } else {
-        PRIORITY_DATA.push({ label: sdg.title, value: 1, color: sdg.color });
+    const { data, error } = await supabaseClient.from('citizen_feedback').insert([
+      { 
+        user_id: currentUser.id,
+        sdg_id: parseInt(sdgId),
+        suggestion: suggestion
       }
-      renderPriorityBars(document.getElementById('priorityBars'));
-    }
+    ]);
 
-    showToast('Thank you! Your feedback has been submitted 🎉', 'success');
-    document.getElementById('sdgPriority').value = '';
-    document.getElementById('policySuggestion').value = '';
+    if (error) {
+      showToast('Error submitting feedback: ' + error.message, 'warning');
+    } else {
+      showToast('Thank you! Your feedback has been submitted 🎉', 'success');
+      document.getElementById('sdgPriority').value = '';
+      document.getElementById('policySuggestion').value = '';
+      
+      // Refresh priority bars
+      fetchSupabaseData().then(() => {
+        renderPriorityBars(document.getElementById('priorityBars'));
+      });
+    }
   });
 }
 
