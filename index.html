@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
+  <div class="bg-chakra-overlay"></div>
 
   <!-- ===== NAVBAR ===== -->
   <nav class="navbar" id="navbar">
@@ -28,6 +30,10 @@
         <li><a href="#citizen">Citizen Voice</a></li>
       </ul>
       <div class="nav-auth" id="navAuth">
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+          <span class="icon-moon">🌙</span>
+          <span class="icon-sun">☀️</span>
+        </button>
         <button class="btn-auth-login" id="navLoginBtn" onclick="openAuthModal()">
           <span class="auth-icon">👤</span> Login
         </button>
@@ -55,8 +61,9 @@
       <div class="hero-blob hero-blob-1"></div>
       <div class="hero-blob hero-blob-2"></div>
       <div class="hero-blob hero-blob-3"></div>
+      <div class="eco-backdrop"></div>
     </div>
-    <div class="floating-icons" id="floatingIcons">
+    <div class="floating-elements" id="floatingIconsHero">
       <!-- Injected via JS -->
     </div>
     <div class="container">
@@ -101,6 +108,7 @@
 
   <!-- ===== SDG EXPLORER SECTION ===== -->
   <section class="sdg-explorer" id="explorer">
+    <div class="floating-elements" id="floatingIconsExplorer"></div>
     <div class="container">
       <h2 class="section-title reveal">Explore the 17 SDGs</h2>
       <p class="section-subtitle reveal">
@@ -109,6 +117,7 @@
       <div class="sdg-grid" id="sdgGrid">
         <!-- Injected via JS -->
       </div>
+      <div class="eco-backdrop"></div>
     </div>
   </section>
 
@@ -137,6 +146,7 @@
 
   <!-- ===== POLICY IMPACT DASHBOARD ===== -->
   <section class="dashboard-section" id="dashboard">
+    <div class="floating-elements" id="floatingIconsDashboard"></div>
     <div class="container">
       <h2 class="section-title reveal">Policy Impact Dashboard</h2>
       <p class="section-subtitle reveal">
@@ -171,8 +181,8 @@
                     stroke-dasharray="377" stroke-dashoffset="377" id="sanitationArc" />
                   <defs>
                     <linearGradient id="sanitationGrad" x1="0" y1="0" x2="1" y2="1">
-                      <stop offset="0%" stop-color="#10b981" />
-                      <stop offset="100%" stop-color="#3b82f6" />
+                      <stop offset="0%" stop-color="#FF9933" />
+                      <stop offset="100%" stop-color="#138808" />
                     </linearGradient>
                   </defs>
                 </svg>
@@ -209,12 +219,12 @@
             <svg class="line-chart-svg" viewBox="0 0 700 200" preserveAspectRatio="none" id="gangaChart">
               <defs>
                 <linearGradient id="lineGrad" x1="0" y1="0" x2="1" y2="0">
-                  <stop offset="0%" stop-color="#10b981" />
-                  <stop offset="100%" stop-color="#3b82f6" />
+                  <stop offset="0%" stop-color="#FF9933" />
+                  <stop offset="100%" stop-color="#138808" />
                 </linearGradient>
                 <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="rgba(16,185,129,0.25)" />
-                  <stop offset="100%" stop-color="rgba(16,185,129,0)" />
+                  <stop offset="0%" stop-color="rgba(19,136,8,0.25)" />
+                  <stop offset="100%" stop-color="rgba(19,136,8,0)" />
                 </linearGradient>
               </defs>
               <!-- Grid lines -->
@@ -248,6 +258,7 @@
 
   <!-- ===== POLICY SIMULATOR ===== -->
   <section class="simulator-section" id="simulator">
+    <div class="floating-elements" id="floatingIconsSimulator"></div>
     <div class="container">
       <h2 class="section-title reveal">Policy Simulator</h2>
       <p class="section-subtitle reveal">
@@ -350,6 +361,7 @@
 
   <!-- ===== CITIZEN VOICE ===== -->
   <section class="citizen-section" id="citizen">
+    <div class="floating-elements" id="floatingIconsCitizen"></div>
     <div class="container">
       <h2 class="section-title reveal">Citizen Voice</h2>
       <p class="section-subtitle reveal">
@@ -429,9 +441,10 @@
   <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container">
+      <div class="eco-backdrop" style="opacity: 0.1;"></div>
       <div class="footer-grid">
         <div>
-          <div class="footer-brand">🌱 Sustainable India</div>
+          <div class="footer-brand">🇮🇳 Sustainable India</div>
           <p class="footer-description">
             An interactive platform exploring India's journey toward achieving the 
             United Nations Sustainable Development Goals through innovative policies.

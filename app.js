@@ -7,166 +7,166 @@
 const SDG_DATA = [
   {
     id: 1, title: "No Poverty", icon: "🏠", color: "#e5243b",
-    description: "End poverty in all its forms everywhere. India aims to reduce multidimensional poverty by empowering communities through financial inclusion, rural development, and social security programs.",
+    description: "End poverty in all its forms. India has lifted over 415 million people out of multidimensional poverty between 2005 and 2021, and continues to empower rural communities through direct benefit transfers and social safety nets.",
     policies: [
-      { name: "PM-KISAN", icon: "🌾", color: "#e5243b22", desc: "Direct income support of ₹6,000/year to 110 million farmers, boosting rural incomes and reducing agricultural poverty." },
-      { name: "MGNREGA", icon: "👷", color: "#e5243b22", desc: "World's largest employment guarantee program providing 100 days of work to 270 million rural households." },
-      { name: "Jan Dhan Yojana", icon: "🏦", color: "#e5243b22", desc: "Financial inclusion program that opened 500 million+ bank accounts, enabling direct benefit transfers to the poorest." }
+      { name: "PM-KISAN", icon: "🌾", color: "#e5243b22", desc: "Direct income support of ₹6,000/year to 110 million farmers, boosting local economies." },
+      { name: "MGNREGA", icon: "👷", color: "#e5243b22", desc: "Providing 100 days of guaranteed wage employment to rural households across India." },
+      { name: "Jan Dhan Yojana", icon: "🏦", color: "#e5243b22", desc: "Ensured 500M+ unbanked Indians have access to financial services and credit." }
     ]
   },
   {
     id: 2, title: "Zero Hunger", icon: "🌾", color: "#dda63a",
-    description: "End hunger, achieve food security and improved nutrition, and promote sustainable agriculture across India.",
+    description: "End hunger and improve nutrition. India's PM Garib Kalyan Anna Yojana is one of the world's largest food security programs, serving over 800 million citizens.",
     policies: [
-      { name: "PM Garib Kalyan Anna Yojana", icon: "🍚", color: "#dda63a22", desc: "Free food grains to 800 million beneficiaries, ensuring no Indian goes hungry." },
-      { name: "National Food Security Act", icon: "📜", color: "#dda63a22", desc: "Legal entitlement to subsidized food grains for 75% of rural and 50% of urban population." },
-      { name: "Mid-Day Meal Scheme", icon: "🍽️", color: "#dda63a22", desc: "Free lunch to 120 million children across 1.2 million schools daily." }
+      { name: "PMGKAY", icon: "🍚", color: "#dda63a22", desc: "Free food grains to 800 million beneficiaries, ensuring food security during challenging times." },
+      { name: "POSHAN Abhiyaan", icon: "🤰", color: "#dda63a22", desc: "National Nutrition Mission aiming to reduce stunting and anemia among children and women." },
+      { name: "One Nation One Ration Card", icon: "🎫", color: "#dda63a22", desc: "Ensuring food security for migrant workers anywhere in India." }
     ]
   },
   {
     id: 3, title: "Good Health", icon: "❤️", color: "#4c9f38",
-    description: "Ensure healthy lives and promote well-being for all at all ages through universal health coverage and disease prevention.",
+    description: "Universal health coverage. India's Ayushman Bharat is the world's largest government-funded healthcare program, providing a safety net for 500 million people.",
     policies: [
-      { name: "Ayushman Bharat", icon: "🏥", color: "#4c9f3822", desc: "World's largest health insurance scheme covering 500 million people with ₹5 lakh annual health cover per family." },
-      { name: "National Health Mission", icon: "💊", color: "#4c9f3822", desc: "Comprehensive healthcare in rural & urban areas, reducing infant and maternal mortality significantly." },
-      { name: "Swachh Bharat Mission", icon: "🚽", color: "#4c9f3822", desc: "Built 110 million+ toilets, making India open-defecation free and reducing waterborne diseases." }
+      { name: "Ayushman Bharat", icon: "🏥", color: "#4c9f3822", desc: "Health cover of ₹5 lakh per family per year for secondary and tertiary care hospitalization." },
+      { name: "National Health Mission", icon: "🚑", color: "#4c9f3822", desc: "Strengthening rural and urban health systems across India." },
+      { name: "Mission Indradhanush", icon: "💉", color: "#4c9f3822", desc: "Full immunization coverage for children and pregnant women." }
     ]
   },
   {
     id: 4, title: "Quality Education", icon: "📚", color: "#c5192d",
-    description: "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all Indians.",
+    description: "Inclusive and equitable education. The National Education Policy 2020 aims to transform India into a global knowledge superpower.",
     policies: [
-      { name: "National Education Policy 2020", icon: "🎓", color: "#c5192d22", desc: "Revolutionary education reform introducing 5+3+3+4 structure, multi-lingual education, and flexible curriculum." },
-      { name: "Digital India (Education)", icon: "💻", color: "#c5192d22", desc: "DIKSHA platform with 10 billion+ learning sessions, bridging urban-rural digital divide in education." },
-      { name: "Samagra Shiksha", icon: "🏫", color: "#c5192d22", desc: "Integrated scheme for school education from pre-school to class XII, improving infrastructure and teacher training." }
+      { name: "NEP 2020", icon: "🎓", color: "#c5192d22", desc: "A visionary framework for school and higher education, emphasizing 21st-century skills." },
+      { name: "Samagra Shiksha", icon: "🏫", color: "#c5192d22", desc: "Integrated scheme for school education from pre-school to class 12." },
+      { name: "DIKSHA", icon: "💻", color: "#c5192d22", desc: "National digital infrastructure for teachers and students across all states." }
     ]
   },
   {
     id: 5, title: "Gender Equality", icon: "⚖️", color: "#ff3a21",
-    description: "Achieve gender equality and empower all women and girls through legislative reforms and economic inclusion.",
+    description: "Empowering women and girls. India has seen a significant increase in female workforce participation and entrepreneurship through targeted schemes.",
     policies: [
-      { name: "Beti Bachao Beti Padhao", icon: "👧", color: "#ff3a2122", desc: "National campaign improving child sex ratio from 918 to 934 per 1,000 boys and increasing girl enrollment." },
-      { name: "PM Matru Vandana Yojana", icon: "🤱", color: "#ff3a2122", desc: "Maternity benefit of ₹5,000 for pregnant women, supporting nutrition and reducing workplace discrimination." },
-      { name: "Stand-Up India", icon: "💼", color: "#ff3a2122", desc: "Bank loans of ₹10 lakh to ₹1 crore for women entrepreneurs, boosting female entrepreneurship by 30%." }
+      { name: "Beti Bachao Beti Padhao", icon: "👧", color: "#ff3a2122", desc: "Celebrating the girl child and ensuring her education and protection." },
+      { name: "Pradhan Mantri Matru Vandana Yojana", icon: "🤱", color: "#ff3a2122", desc: "Maternity benefit scheme for pregnant and lactating mothers." },
+      { name: "Stand-Up India", icon: "🚀", color: "#ff3a2122", desc: "Facilitating bank loans for women and SC/ST entrepreneurs." }
     ]
   },
   {
-    id: 6, title: "Clean Water", icon: "💧", color: "#26bde2",
-    description: "Ensure availability and sustainable management of water and sanitation for all through infrastructure and conservation.",
+    id: 6, title: "Clean Water & Sanitation", icon: "💧", color: "#26bde2",
+    description: "Clean water for all. The Jal Jeevan Mission is transforming rural India by providing tap water connections to every household.",
     policies: [
-      { name: "Jal Jeevan Mission", icon: "🚰", color: "#26bde222", desc: "Providing tap water connections to 150 million+ rural households, targeting 100% coverage." },
-      { name: "Namami Gange", icon: "🏞️", color: "#26bde222", desc: "₹30,000 crore mission to clean and rejuvenate the Ganga, with 150+ sewage treatment plants." },
-      { name: "Atal Bhujal Yojana", icon: "🌊", color: "#26bde222", desc: "Community-led groundwater management across 8,300+ gram panchayats in 7 states." }
+      { name: "Jal Jeevan Mission", icon: "🚰", color: "#26bde222", desc: "Har Ghar Jal: Providing safe and adequate drinking water through individual tap connections." },
+      { name: "Swachh Bharat Mission", icon: "🚽", color: "#26bde222", desc: "A mass movement that made India Open Defecation Free (ODF)." },
+      { name: "Namami Gange", icon: "🏞️", color: "#26bde222", desc: "Integrated conservation mission to clean and protect the River Ganga." }
     ]
   },
   {
-    id: 7, title: "Clean Energy", icon: "⚡", color: "#fcc30b",
-    description: "Ensure access to affordable, reliable, sustainable and modern energy for all Indians.",
+    id: 7, title: "Afforable & Clean Energy", icon: "⚡", color: "#fcc30b",
+    description: "Powering India sustainably. India is home to the world's largest renewable energy expansion program, aiming for 500 GW by 2030.",
     policies: [
-      { name: "National Solar Mission", icon: "☀️", color: "#fcc30b22", desc: "India's solar capacity grew from 2.6 GW to 80+ GW, targeting 500 GW renewable energy by 2030." },
-      { name: "PM-KUSUM", icon: "🔆", color: "#fcc30b22", desc: "Solar pumps for 3.5 million farmers, reducing diesel dependency and providing clean irrigation energy." },
-      { name: "Ujjwala Yojana", icon: "🔥", color: "#fcc30b22", desc: "100 million+ free LPG connections replacing polluting biomass fuels in rural households." }
+      { name: "PM-KUSUM", icon: "🚜", color: "#fcc30b22", desc: "De-dieselization of the farm sector by installing solar pumps." },
+      { name: "National Solar Mission", icon: "☀️", color: "#fcc30b22", desc: "Promoting ecologically sustainable growth while addressing India's energy security." },
+      { name: "PM Ujjwala Yojana", icon: "🔥", color: "#fcc30b22", desc: "Providing clean cooking fuel (LPG) to women from BPL households." }
     ]
   },
   {
-    id: 8, title: "Decent Work", icon: "💼", color: "#a21942",
-    description: "Promote sustained, inclusive economic growth, full employment and decent work for all.",
+    id: 8, title: "Decent Work & Growth", icon: "💼", color: "#a21942",
+    description: "Inclusive economic growth. Initiatives like 'Make in India' and 'Startup India' are creating millions of jobs and fostering innovation.",
     policies: [
-      { name: "Make in India", icon: "🏭", color: "#a2194222", desc: "Manufacturing initiative attracting $120 billion FDI, creating millions of formal sector jobs." },
-      { name: "Startup India", icon: "🚀", color: "#a2194222", desc: "Built world's 3rd largest startup ecosystem with 100,000+ recognized startups creating 1.2 million+ jobs." },
-      { name: "PM Mudra Yojana", icon: "💳", color: "#a2194222", desc: "₹23 lakh crore in micro-enterprise loans to 400 million+ borrowers, 70% women beneficiaries." }
+      { name: "Make in India", icon: "🏗️", color: "#a2194222", desc: "Transforming India into a global design and manufacturing hub." },
+      { name: "Startup India", icon: "🚀", color: "#a2194222", desc: "Nurturing an ecosystem for startups to drive sustainable economic growth." },
+      { name: "PM Mudra Yojana", icon: "💳", color: "#a2194222", desc: "Providing loans to non-corporate, non-farm small/micro enterprises." }
     ]
   },
   {
     id: 9, title: "Industry & Innovation", icon: "🔬", color: "#fd6925",
-    description: "Build resilient infrastructure, promote inclusive industrialization, and foster innovation.",
+    description: "Resilient infrastructure. India is rapidly digitizing its economy and building world-class infrastructure through the Gati Shakti master plan.",
     policies: [
-      { name: "Digital India", icon: "📱", color: "#fd692522", desc: "Transforming India into a digitally empowered society with 900 million internet users and UPI revolution." },
-      { name: "PLI Scheme", icon: "⚙️", color: "#fd692522", desc: "₹2 lakh crore production-linked incentives across 14 sectors boosting domestic manufacturing." },
-      { name: "Smart Cities Mission", icon: "🏙️", color: "#fd692522", desc: "100 smart cities with integrated infrastructure, IoT sensors, and citizen-centric innovations." }
+      { name: "PM Gati Shakti", icon: "🛤️", color: "#fd692522", desc: "National Master Plan for multi-modal connectivity to reduce logistics costs." },
+      { name: "Digital India", icon: "📱", color: "#fd692522", desc: "Empowering citizens with digital access to government services." },
+      { name: "Atal Innovation Mission", icon: "💡", color: "#fd692522", desc: "Promoting a culture of innovation and entrepreneurship across India." }
     ]
   },
   {
     id: 10, title: "Reduced Inequalities", icon: "🤝", color: "#dd1367",
-    description: "Reduce inequality within and among countries through inclusive policies and affirmative action.",
+    description: "Equal opportunities for all. India's focus on Aspirational Districts ensures that development reaches the most remote and underserved areas.",
     policies: [
-      { name: "PM-JAY", icon: "🩺", color: "#dd136722", desc: "Healthcare for 500 million poorest citizens, reducing out-of-pocket medical expenditure by 40%." },
-      { name: "One Nation One Ration Card", icon: "🎫", color: "#dd136722", desc: "Portable benefits allowing 800 million migrants to access food subsidy anywhere in India." },
-      { name: "PM-DAKSH", icon: "📈", color: "#dd136722", desc: "Skill development for marginalized communities including SC/ST/OBC, improving upward mobility." }
+      { name: "Aspirational Districts Program", icon: "📍", color: "#dd136722", desc: "Transforming the most under-developed districts through data-driven governance." },
+      { name: "PM-JANMAN", icon: "🛖", color: "#dd136722", desc: "Focusing on the upliftment of Particularly Vulnerable Tribal Groups (PVTGs)." },
+      { name: "Stand-Up India", icon: "📈", color: "#dd136722", desc: "Promoting entrepreneurship among SC, ST, and women." }
     ]
   },
   {
     id: 11, title: "Sustainable Cities", icon: "🏙️", color: "#fd9d24",
-    description: "Make cities and human settlements inclusive, safe, resilient and sustainable.",
+    description: "Inclusive urban development. Smart Cities Mission and PM Awas Yojana are redefining urban living in India.",
     policies: [
-      { name: "PM Awas Yojana", icon: "🏠", color: "#fd9d2422", desc: "30 million+ affordable houses built for urban and rural poor, creating inclusive housing." },
-      { name: "Metro Rail Expansion", icon: "🚇", color: "#fd9d2422", desc: "Metro networks in 27+ cities spanning 900+ km, reducing urban congestion and air pollution." },
-      { name: "AMRUT", icon: "🌳", color: "#fd9d2422", desc: "Urban rejuvenation in 500 cities improving water supply, sewerage, and green spaces." }
+      { name: "Smart Cities Mission", icon: "🏙️", color: "#fd9d2422", desc: "Developing 100 cities to be citizen-friendly and sustainable." },
+      { name: "PM Awas Yojana (Urban)", icon: "🏠", color: "#fd9d2422", desc: "Providing all-weather pucca houses to all eligible urban households." },
+      { name: "FAME India", icon: "🔌", color: "#fd9d2422", desc: "Faster Adoption and Manufacturing of Electric Vehicles for sustainable transport." }
     ]
   },
   {
     id: 12, title: "Responsible Consumption", icon: "♻️", color: "#bf8b2e",
-    description: "Ensure sustainable consumption and production patterns to reduce ecological footprint.",
+    description: "Circular economy. India's LiFE (Lifestyle for Environment) movement encourages citizens to adopt sustainable habits.",
     policies: [
-      { name: "Single-Use Plastic Ban", icon: "🚫", color: "#bf8b2e22", desc: "Ban on 19 categories of single-use plastics, reducing plastic waste by 30% in cities." },
-      { name: "GOBARdhan", icon: "🐄", color: "#bf8b2e22", desc: "Converting cattle dung and waste to biogas and bio-CNG, creating circular economy in rural India." },
-      { name: "Extended Producer Responsibility", icon: "📦", color: "#bf8b2e22", desc: "Making producers responsible for post-consumer waste management of packaging and electronics." }
+      { name: "Mission LiFE", icon: "🌱", color: "#bf8b2e22", desc: "A global movement to nudge individuals toward mindful and deliberate utilization." },
+      { name: "GOBARdhan", icon: "🐄", color: "#bf8b2e22", desc: "Converting cattle dung and solid waste into compost and biogas." },
+      { name: "Single-Use Plastic Ban", icon: "🚫", color: "#bf8b2e22", desc: "Reducing plastic waste through a nationwide ban on identified single-use items." }
     ]
   },
   {
     id: 13, title: "Climate Action", icon: "🌍", color: "#3f7e44",
-    description: "Take urgent action to combat climate change and its impacts through mitigation and adaptation.",
+    description: "Combating climate change. India's 'Panchamrit' goals at COP26 demonstrate its commitment to a net-zero future by 2070.",
     policies: [
-      { name: "Panchamrit Commitments", icon: "🎯", color: "#3f7e4422", desc: "India's COP26 pledge: 500 GW non-fossil energy, 50% renewable electricity, net-zero by 2070." },
-      { name: "National Action Plan on Climate Change", icon: "📋", color: "#3f7e4422", desc: "8 national missions covering solar, energy efficiency, water, Himalayan ecosystems, and green India." },
-      { name: "Green Hydrogen Mission", icon: "💨", color: "#3f7e4422", desc: "₹19,744 crore mission for green hydrogen production, targeting 5 MMT annual production by 2030." }
+      { name: "Panchamrit", icon: "🎯", color: "#3f7e4422", desc: "India's 5-point climate action plan including 500 GW non-fossil capacity." },
+      { name: "National Green Hydrogen Mission", icon: "💨", color: "#3f7e4422", desc: "Making India a global hub for the production and export of Green Hydrogen." },
+      { name: "Green India Mission", icon: "🌲", color: "#3f7e4422", desc: "Protecting, restoring, and enhancing India's diminishing forest cover." }
     ]
   },
   {
     id: 14, title: "Life Below Water", icon: "🐟", color: "#0a97d9",
-    description: "Conserve and sustainably use the oceans, seas and marine resources for sustainable development.",
+    description: "Marine conservation. India's Deep Ocean Mission and Sagarmala project aim for sustainable blue economy growth.",
     policies: [
-      { name: "Deep Ocean Mission", icon: "🌊", color: "#0a97d922", desc: "₹4,077 crore mission for deep-sea exploration, ocean climate advisory, and marine biodiversity preservation." },
-      { name: "Sagarmala Project", icon: "🚢", color: "#0a97d922", desc: "Port-led development reducing logistics costs while maintaining marine environmental standards." },
-      { name: "Blue Economy Policy", icon: "🐠", color: "#0a97d922", desc: "Sustainable utilization of ocean resources covering fisheries, aquaculture, and coastal tourism." }
+      { name: "Deep Ocean Mission", icon: "🌊", color: "#0a97d922", desc: "Exploring the deep ocean for resources and developing deep-sea technologies." },
+      { name: "Sagarmala", icon: "🚢", color: "#0a97d922", desc: "Port-led development that integrates coastal community upliftment." },
+      { name: "Blue Revolution", icon: "🐠", color: "#0a97d922", desc: "Integrated development and management of fisheries." }
     ]
   },
   {
     id: 15, title: "Life on Land", icon: "🌳", color: "#56c02b",
-    description: "Protect, restore and promote sustainable use of terrestrial ecosystems and halt biodiversity loss.",
+    description: "Protecting biodiversity. India has successfully doubled its tiger population and is restoring vast tracts of degraded land.",
     policies: [
-      { name: "Green India Mission", icon: "🌲", color: "#56c02b22", desc: "Increasing forest cover by 5 million hectares and improving quality of existing forests." },
-      { name: "Project Tiger", icon: "🐅", color: "#56c02b22", desc: "Tiger population doubled from 1,411 to 3,682, with 54 tiger reserves across India." },
-      { name: "Compensatory Afforestation", icon: "🌿", color: "#56c02b22", desc: "₹54,000 crore fund for afforestation, wildlife protection, and forest regeneration." }
+      { name: "Project Tiger & Project Elephant", icon: "🐅", color: "#56c02b22", desc: "Iconic conservation programs protecting India's national heritage and wildlife." },
+      { name: "Compensatory Afforestation", icon: "🌲", color: "#56c02b22", desc: "Ensuring land restoration and forest growth through CAMPA funds." },
+      { name: "Desertification Control", icon: "🏜️", color: "#56c02b22", desc: "Restoring 26 million hectares of degraded land by 2030." }
     ]
   },
   {
     id: 16, title: "Peace & Justice", icon: "🕊️", color: "#00689d",
-    description: "Promote peaceful and inclusive societies, provide access to justice for all and build effective institutions.",
+    description: "Strong institutions. India is digitizing its justice system and empowering citizens through the Right to Information and Digital Courts.",
     policies: [
-      { name: "Digital Courts (e-Courts)", icon: "⚖️", color: "#00689d22", desc: "18,000+ computerized courts with virtual hearings, reducing case pendency and improving access to justice." },
-      { name: "RTI Act", icon: "📄", color: "#00689d22", desc: "Empowering 1.4 billion citizens with transparency and right to information from government bodies." },
-      { name: "Citizen Charter", icon: "📑", color: "#00689d22", desc: "Time-bound service delivery commitments across all government departments, improving accountability." }
+      { name: "e-Courts Mission Mode Project", icon: "⚖️", color: "#00689d22", desc: "Transforming Indian courts into digital-ready institutions for speedy justice." },
+      { name: "RTI Act", icon: "📄", color: "#00689d22", desc: "Empowering citizens to seek information and ensure government accountability." },
+      { name: "Universal ID (Aadhaar)", icon: "🆔", color: "#00689d22", desc: "Providing a unique identity to 1.3 billion+ Indians for seamless service delivery." }
     ]
   },
   {
     id: 17, title: "Partnerships for Goals", icon: "🤝", color: "#19486a",
-    description: "Strengthen the means of implementation and revitalize global partnerships for sustainable development.",
+    description: "Global leadership. India leads global initiatives like the International Solar Alliance and the Coalition for Disaster Resilient Infrastructure.",
     policies: [
-      { name: "International Solar Alliance", icon: "☀️", color: "#19486a22", desc: "India-led alliance of 120+ countries promoting solar energy worldwide, headquartered in India." },
-      { name: "South-South Cooperation", icon: "🌐", color: "#19486a22", desc: "India's development partnerships with 78+ countries in Africa, Asia, sharing technical expertise." },
-      { name: "Coalition for Disaster Resilient Infrastructure", icon: "🏗️", color: "#19486a22", desc: "India-led global coalition of 39 countries building climate-resilient infrastructure." }
+      { name: "International Solar Alliance", icon: "☀️", color: "#19486a22", desc: "An India-led global alliance to promote solar energy usage across the world." },
+      { name: "CDRI", icon: "🏗️", color: "#19486a22", desc: "Coalition for Disaster Resilient Infrastructure, promoting climate-proof systems." },
+      { name: "G20 Presidency (One Earth, One Family, One Future)", icon: "🌏", color: "#19486a22", desc: "India's leadership in driving global consensus on sustainable development." }
     ]
   }
 ];
 
 // ===== VOTING IDEAS DATA =====
 const VOTE_IDEAS = [
-  { id: 1, text: "Make rooftop solar mandatory for all new buildings", votes: 0 },
-  { id: 2, text: "Nationwide ban on single-use plastics by 2027", votes: 0 },
-  { id: 3, text: "Free public EV charging at all government buildings", votes: 0 },
-  { id: 4, text: "Mandatory rainwater harvesting in urban areas", votes: 0 },
-  { id: 5, text: "Carbon credits for individuals planting trees", votes: 0 }
+  { id: 1, text: "Mandatory solar panels on all government buildings in India", votes: 0 },
+  { id: 2, text: "Expand Metro Rail networks to Tier-2 Indian cities", votes: 0 },
+  { id: 3, text: "Introduce carbon tax for heavy industries in India", votes: 0 },
+  { id: 4, text: "Nationwide scale-up of vertical farming in urban areas", votes: 0 },
+  { id: 5, text: "Subsidies for indigenous eco-friendly building materials", votes: 0 }
 ];
 
 // ===== PRIORITY DATA (dynamically built from user submissions) =====
@@ -180,6 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initCursorGlow();
   initNavbar();
   initAuth();
+  initTheme();
   initFloatingIcons();
   initSDGWheel();
   initSDGGrid();
@@ -389,9 +390,17 @@ function handleLogout() {
 
 function updateNavbarAuth() {
   const navAuth = document.getElementById('navAuth');
+  const toggleHtml = `
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <span class="icon-moon">🌙</span>
+      <span class="icon-sun">☀️</span>
+    </button>
+  `;
+
   if (currentUser) {
     const initials = currentUser.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0, 2);
     navAuth.innerHTML = `
+      ${toggleHtml}
       <div class="nav-user-greeting">
         <div class="nav-user-avatar">${initials}</div>
         ${currentUser.name.split(' ')[0]}
@@ -400,11 +409,36 @@ function updateNavbarAuth() {
     `;
   } else {
     navAuth.innerHTML = `
+      ${toggleHtml}
       <button class="btn-auth-login" id="navLoginBtn" onclick="openAuthModal()">
         <span class="auth-icon">👤</span> Login
       </button>
     `;
   }
+  
+  // Re-attach toggle listener whenever navbar updates
+  const newToggle = document.getElementById('themeToggle');
+  newToggle.addEventListener('click', toggleTheme);
+}
+
+function initTheme() {
+  const savedTheme = localStorage.getItem('india_sdg_theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
+  
+  const toggle = document.getElementById('themeToggle');
+  if (toggle) {
+    toggle.addEventListener('click', toggleTheme);
+  }
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme');
+  const target = current === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', target);
+  localStorage.setItem('india_sdg_theme', target);
+  
+  // Update toggle button state across potential re-renders
+  showToast(`${target.charAt(0).toUpperCase() + target.slice(1)} mode activated`, 'info');
 }
 
 function updateCitizenLock() {
@@ -537,22 +571,53 @@ function scrollToSection(id) {
   window.scrollTo({ top: y, behavior: 'smooth' });
 }
 
-// ===== FLOATING ICONS =====
+// ===== FLOATING ELEMENTS =====
 function initFloatingIcons() {
-  const container = document.getElementById('floatingIcons');
-  const icons = ['🌍', '☀️', '💧', '🌳', '♻️', '⚡', '🕊️', '🐟', '🌾', '❤️', '📚', '🏙️'];
+  const sections = [
+    { id: 'floatingIconsHero', count: 18, icons: ['☀️', '🔋', '🌱', '🌬️', '💧', '🌲', '🏥', '🎓', '🚜', '💻', '🚆', '🏙️'] },
+    { id: 'floatingIconsExplorer', count: 12, icons: ['🎯', '🇮🇳', '📈', '🤝', '🔬', '🌍', '🏠', '🌾'] },
+    { id: 'floatingIconsDashboard', count: 10, icons: ['📊', '📈', '📉', '⚡', '🚿', '🏞️'] },
+    { id: 'floatingIconsSimulator', count: 10, icons: ['⚙️', '📊', '🌡️', '⚡', '💰', '🌳'] },
+    { id: 'floatingIconsCitizen', count: 10, icons: ['📝', '🗳️', '📈', '🗣️', '💭', '💡'] }
+  ];
 
-  icons.forEach((icon, i) => {
-    const el = document.createElement('div');
-    el.className = 'floating-icon';
-    el.textContent = icon;
-    el.style.left = `${Math.random() * 90 + 5}%`;
-    el.style.top = `${Math.random() * 80 + 10}%`;
-    el.style.animationDelay = `${Math.random() * 10}s`;
-    el.style.animationDuration = `${12 + Math.random() * 8}s`;
-    el.style.fontSize = `${1.2 + Math.random() * 1.2}rem`;
-    container.appendChild(el);
+  sections.forEach(config => {
+    const container = document.getElementById(config.id);
+    if (!container) return;
+    
+    for (let i = 0; i < config.count; i++) {
+      const icon = config.icons[Math.floor(Math.random() * config.icons.length)];
+      const el = document.createElement('div');
+      el.className = `floating-icon anim-${(i % 3) + 1}`;
+      el.textContent = icon;
+      
+      const x = Math.random() * 95;
+      const y = Math.random() * 90;
+      
+      el.style.left = `${x}%`;
+      el.style.top = `${y}%`;
+      el.style.fontSize = `${1.2 + Math.random() * 1.5}rem`;
+      el.style.animationDelay = `${Math.random() * -20}s`;
+      
+      // Store initial positions for parallax
+      el.setAttribute('data-x', x);
+      el.setAttribute('data-y', y);
+      el.setAttribute('data-speed', 1 + Math.random() * 2);
+      
+      container.appendChild(el);
+    }
   });
+
+  // Mouse Parallax Effect
+  document.addEventListener('mousemove', (e) => {
+    const mx = (e.clientX / window.innerWidth - 0.5) * 40;
+    const my = (e.clientY / window.innerHeight - 0.5) * 40;
+    
+    document.querySelectorAll('.floating-icon').forEach(icon => {
+      const speed = parseFloat(icon.getAttribute('data-speed'));
+      icon.style.transform = `translate(${mx * speed}px, ${my * speed}px)`;
+    });
+  }, { passive: true });
 }
 
 // ===== SDG WHEEL =====
@@ -662,9 +727,9 @@ function initSDGGrid() {
       card.style.transform = '';
     });
 
-    card.addEventListener('click', () => {
+    card.addEventListener('click', (e) => {
       selectSDG(i);
-      openModal(i);
+      openModal(i, e.currentTarget);
     });
     grid.appendChild(card);
   });
@@ -674,6 +739,13 @@ function initSDGGrid() {
 function initSDGModal() {
   const overlay = document.getElementById('sdgModalOverlay');
   const closeBtn = document.getElementById('modalClose');
+
+  // Create morph circle if not exists
+  if (!document.querySelector('.morph-circle')) {
+    const circle = document.createElement('div');
+    circle.className = 'morph-circle';
+    document.body.appendChild(circle);
+  }
 
   overlay.addEventListener('click', (e) => {
     if (e.target === overlay) closeModal();
@@ -686,26 +758,67 @@ function initSDGModal() {
   });
 }
 
-function openModal(index) {
+function openModal(index, triggerElement = null) {
   const sdg = SDG_DATA[index];
   const overlay = document.getElementById('sdgModalOverlay');
+  const modal = document.getElementById('sdgModal');
+  const morphCircle = document.querySelector('.morph-circle');
 
+  // Fill content
   document.getElementById('modalIcon').textContent = sdg.icon;
-  document.getElementById('modalIcon').style.background = sdg.color + '22';
+  document.getElementById('modalIcon').style.background = 'rgba(255,255,255,0.2)';
+  document.getElementById('modalIcon').style.color = 'white';
   document.getElementById('modalNumber').textContent = `Goal ${sdg.id}`;
   document.getElementById('modalTitle').textContent = sdg.title;
   document.getElementById('modalDescription').textContent = sdg.description;
 
+  // Apply dynamic color background
+  modal.style.backgroundColor = sdg.color;
+  modal.classList.add('dynamic-bg');
+
   const policiesContainer = document.getElementById('modalPolicies');
   policiesContainer.innerHTML = sdg.policies.map(p => `
-    <div class="policy-card">
-      <div class="policy-card-icon" style="background: ${p.color};">${p.icon}</div>
+    <div class="policy-card dynamic-bg">
+      <div class="policy-card-icon">${p.icon}</div>
       <div class="policy-card-content">
         <h4>${p.name}</h4>
         <p>${p.desc}</p>
       </div>
     </div>
   `).join('');
+
+  // Perform Morph Animation
+  if (triggerElement && morphCircle) {
+    const rect = triggerElement.getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    
+    // Position circle at card
+    morphCircle.style.transition = 'none';
+    morphCircle.style.left = centerX + 'px';
+    morphCircle.style.top = centerY + 'px';
+    morphCircle.style.width = rect.width + 'px';
+    morphCircle.style.height = rect.height + 'px';
+    morphCircle.style.background = sdg.color;
+    morphCircle.style.opacity = '1';
+    
+    // Force reflow
+    morphCircle.offsetHeight;
+    
+    // Animate to full screen coverage
+    morphCircle.style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+    const size = Math.max(window.innerWidth, window.innerHeight) * 2.5;
+    morphCircle.style.width = size + 'px';
+    morphCircle.style.height = size + 'px';
+    morphCircle.classList.add('expanding');
+    
+    setTimeout(() => {
+       morphCircle.style.opacity = '0';
+       setTimeout(() => {
+          morphCircle.classList.remove('expanding');
+       }, 600);
+    }, 400);
+  }
 
   overlay.classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -734,7 +847,7 @@ function initCharts() {
     group.className = 'bar-group';
     const heightPct = (d.value / d.max) * 180;
     group.innerHTML = `
-      <div class="bar" style="height: 0px; background: linear-gradient(180deg, #fcc30b, #f59e0b);" data-height="${heightPct}">
+      <div class="bar" style="height: 0px; background: var(--gradient-accent);" data-height="${heightPct}">
         <span class="bar-value">${d.value} GW</span>
       </div>
       <span class="bar-label">${d.label}</span>
